@@ -17,7 +17,7 @@
             <div>
                 <h1><a href="">Yechan's Blog</a></h1>
             </div>
-
+{{ posts }}
             <div>
                 <p>published: 2025.02.09, 21:32</p>
                 <h2><a href="">HBase</a></h2>
@@ -28,6 +28,13 @@
                 <p>published: 2025.02.09, 22:43</p>
                 <h2><a href="">Django Framework</a></h2>
                 <p>Django는 파이썬으로 만들어진 무료 오픈소스 웹 애플리케이션 프레임워크(web application framework)입니다. 쉽고 빠르게 웹사이트를 개발할 수 있도록 돕는 구성요소로 이루어진 웹 프레임워크랍니다.</p>
-            </div>
+      	{% for post in posts %}
+      	    <div>
+      	        <p>published: {{ post.published_date }}</p>
+      	        <h2><a href="">{{ post.title }}</a></h2>
+      	        <p>{{ post.text|linebreaks }}</p>
+      	    </div>
+      	{% endfor %}
+
         </body>
 </html>
