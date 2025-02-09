@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # url(r'', include('blog.urls')), Django 2.0 이하 버전에서 지원하는 문법
+    path('', include('blog.urls')),  # 빈 문자열에 대한 URL 처리는 path()로
 ]
